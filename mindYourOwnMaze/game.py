@@ -1,7 +1,7 @@
-from SoftwareDev002.mindYourOwnMaze.gridSize import printGrid
-from SoftwareDev002.mindYourOwnMaze.player import placePlayer, playerMovement, getPlayerInput
-from SoftwareDev002.mindYourOwnMaze.screen import clearScreen
-from SoftwareDev002.mindYourOwnMaze.health import loseLife, checkGameOver, resetLives, showLives
+from gridSize import printGrid
+from player import placePlayer, playerMovement, getPlayerInput
+from screen import clearScreen
+from health import loseLife, checkGameOver, resetLives, showLives
 
 def gameLoop(grid):
     player_pos = placePlayer(grid)

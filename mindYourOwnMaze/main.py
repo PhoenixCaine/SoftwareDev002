@@ -1,7 +1,7 @@
-from SoftwareDev002.mindYourOwnMaze.titleScreen import titleScreen
-from SoftwareDev002.mindYourOwnMaze.gridSize import createGrid, printGrid, selectGridSize
-from SoftwareDev002.mindYourOwnMaze.maze import makeMaze
-from SoftwareDev002.mindYourOwnMaze.game import gameLoop
+from titleScreen import titleScreen
+from gridSize import createGrid, printGrid, selectGridSize
+from maze import makeMaze
+from game import gameLoop
 
 def main():
     titleScreen()
