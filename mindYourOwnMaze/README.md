@@ -50,8 +50,8 @@ Follow this order exactly:
 3.	implement player movement [Done]
 4.	stop movement outside the map [Done]
 5.	add hidden item and traps
-6.	add health tracking
-7.	add win and lose checks
+6.	add health tracking [Done]
+7.	add win and lose checks 
 8.	add BFS hint or solver
 9.	test everything
 10.	write your explanation
