@@ -1,18 +1,22 @@
 import sys
+import player
 
 
 def createGrid(rows, cols):
     return [["." for _ in range(cols)] for _ in range(rows)]
 
 
-def cell_symbol(r, c, player, reveal, traps, item_pos):
-    if r == player.row and c == player.col:
+def cell_symbol(r, c, player, reveal, traps, item_pos, revealedTraps):
+    if (r, c) == (player.row, player.col):
         return "P"
-    if reveal and (r, c) == item_pos:
+    elif reveal and (r, c) == item_pos:
         return "T"
-    if reveal and (r, c) in traps:
+    elif reveal and (r, c) in traps:
         return "X"
-    return "."
+    elif (r, c) in revealedTraps:
+        return "X"
+    else:
+        return "."
 
 
 def printGrid(gameState):
@@ -35,9 +39,9 @@ def printGrid(gameState):
 
     for r in range(rows):
         row_display = [
-            cell_symbol(r, c, player, reveal, traps, item_pos)
-            for c in range(cols)
-        ]
+    cell_symbol(r, c, player, reveal, traps, item_pos, gameState.revealedTraps)
+    for c in range(cols)
+]
         print(vertical + " " + " ".join(row_display) + " " + vertical)
 
     print(bottom_left + horizontal * (cols * 2 + 1) + bottom_right)

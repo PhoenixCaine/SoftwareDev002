@@ -9,6 +9,8 @@ from screenClear import clearScreen
 def handleTrap(game):
     game.player.loseHealth()
 
+    game.revealedTraps.add((game.player.row, game.player.col))
+
     if game.player.isDead():
         print("You hit a trap. You lose a life!")
         print("You died! Game over.")

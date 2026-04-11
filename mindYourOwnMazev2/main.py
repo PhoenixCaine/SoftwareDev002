@@ -13,22 +13,22 @@ def main():
         rows, cols = selectGridSize()
         grid = createGrid(rows, cols)
         makeMaze(grid)
-    
+
         tempPlayer = Player()
-    
+
         item = placeItem(grid, tempPlayer)
         traps = placeTraps(grid, tempPlayer, item)
-    
+
         gameLoop(grid, item, traps)
-    
-# Re    start game option after game ends for win or lose
-    
+
+# Restart game option after game ends for win or lose
+
         choice = input("\nWould you like to play again? (y/n): ").lower()
-    
+
         if choice == "y":
             clearScreen()
             continue  # restart the game
-        
+
         print("Thanks for playing!")
         break  # exit the loop and end the program
 
