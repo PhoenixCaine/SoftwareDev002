@@ -3,6 +3,7 @@ from player import Player
 from gameState import GameState
 from hiddenItems import placeItem, placeTraps
 from screenClear import clearScreen
+from bfs import bfs
 
 # Handle trap and item interactions
 
@@ -41,6 +42,36 @@ def processMovement(direction, game):
     if game.player_on_item():
         handleItem(game)
 
+# BFS hint system 
+def giveHint(game):
+    start = (game.player.row, game.player.col)
+    goal = game.item_pos
+    grid = game.grid
+
+    path = bfs(start, goal, grid)
+
+    if not path or len(path) < 2:
+        print("No path found!")
+        input("Press Enter to continue...")
+        return
+
+    next_step = path[1]  # path[0] is current position
+
+    pr, pc = game.player.row, game.player.col
+    nr, nc = next_step
+
+    if nr < pr:
+        direction = "w"   # move up
+    elif nr > pr:
+        direction = "s"   # move down
+    elif nc < pc:
+        direction = "a"   # move left
+    elif nc > pc:
+        direction = "d"   # move right
+
+    print(f"Hint: move '{direction}' toward {next_step}")
+    input("Press Enter to continue...")
+
 # Main game loop
 
 def gameLoop(grid, item, traps):
@@ -59,7 +90,7 @@ def gameLoop(grid, item, traps):
             continue
 
         if direction == "h":
-            print("Hint coming soon…")
+            giveHint(game)
             continue
 
         print("Invalid input.")
