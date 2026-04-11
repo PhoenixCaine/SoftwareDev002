@@ -16,11 +16,11 @@ except ImportError:
 # Handle trap and item interactions
 
 def handleTrap(game):
-    game.player.loseHealth()
+    game.health -= 1
 
     game.revealedTraps.add((game.player.row, game.player.col))
 
-    if game.player.isDead():
+    if game.health <= 0:
         print("You hit a trap. You lose a life!")
         print("You died! Game over.")
         input("Press Enter to reveal map...")
@@ -28,7 +28,7 @@ def handleTrap(game):
         game.running = False
     else:
         print("You hit a trap. You lose a life!")
-        print("You have {} health left.".format(game.player.health))
+        print(f"You have {game.health} health left.")
         input("Press Enter to continue...")
 
 def handleItem(game):
@@ -88,7 +88,7 @@ def gameLoop(grid, item, traps):
 
     while game.running:
         clearScreen()
-        print(f"Health: {game.player.health}")
+        print(f"Health: {game.health}")
         printGrid(game)
 
         direction = input("Move (w/a/s/d) or h for hint: ").lower()

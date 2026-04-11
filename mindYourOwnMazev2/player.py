@@ -1,9 +1,7 @@
-
 class Player:
     def __init__(self, row=0, col=0, health=3):
         self.row = row
         self.col = col
-        self.health = health
 
     def move(self, direction, rows, cols):
         new_r, new_c = self.row, self.col
@@ -18,10 +16,4 @@ class Player:
 
         self.row, self.col = new_r, new_c
 
-    def loseHealth(self):
-        self.health -= 1
-
-
-    def isDead(self):
-        return self.health <= 0
     
