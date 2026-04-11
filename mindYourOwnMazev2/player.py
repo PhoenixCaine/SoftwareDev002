@@ -1,42 +1,27 @@
 
-player = "P"
+class Player:
+    def __init__(self, row=0, col=0, health=3):
+        self.row = row
+        self.col = col
+        self.health = health
 
-def placePlayer(grid):
-    player_pos = [0, 0]
-    grid[player_pos[0]][player_pos[1]] = "P"
-    return player_pos
+    def move(self, direction, rows, cols):
+        new_r, new_c = self.row, self.col
+        if direction == "w" and self.row > 0:
+            new_r-= self.row - 1
+        elif direction == "s" and self.row < rows - 1:
+            new_r+= self.row + 1
+        elif direction == "a" and self.col > 0:
+            new_c-= self.col - 1    
+        elif direction == "d" and self.col < cols - 1:
+            new_c+= self.col + 1
+            
+            self.row, self.col = new_r, new_c
 
+    def loseHealth(self):
+        self.health -= 1
+        print(f"Player took damage! Health: {self.health}")
 
-def playerMovement(grid, player_pos, direction):
-    rows = len(grid)
-    cols = len(grid[0])
-
-    r, c = player_pos
-
-    new_r, new_c = r, c
-
-    if direction == "w" and r > 0:
-        new_r -= 1
-    elif direction == "s" and r < rows - 1:
-        new_r += 1
-    elif direction == "a" and c > 0:
-        new_c -= 1
-    elif direction == "d" and c < cols - 1:
-        new_c += 1
-
-    # Only update if the position changed
-    if (new_r, new_c) != (r, c):
-        grid[r][c] = "."
-        grid[new_r][new_c] = "P"
-        player_pos[0], player_pos[1] = new_r, new_c
-
-    return player_pos
-
-
-def getPlayerInput():
-    direction = input("Enter direction (w, s, a, d): ").lower()
-    if direction in ["w", "a", "s", "d"]:
-        return direction
-    else:
-        print("Invalid input.")
-        return None
+    def isDead(self):
+        return self.health <= 0
+    

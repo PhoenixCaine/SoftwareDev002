@@ -7,8 +7,8 @@ def main():
     titleScreen()
     rows, cols = selectGridSize()
     grid = createGrid(rows, cols)
-    maze = makeMaze(grid)
-    gameLoop(maze)
+    makeMaze(grid)
+    gameLoop(grid)
 
 if __name__ == "__main__":
     main()
