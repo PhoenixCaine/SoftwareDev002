@@ -1,3 +1,6 @@
+import sys
+
+
 def createGrid(rows, cols):
     return [["." for _ in range(cols)] for _ in range(rows)]
 
@@ -12,23 +15,32 @@ def cell_symbol(r, c, player, reveal, traps, item_pos):
     return "."
 
 
-def printGrid(game_state):
-    rows, cols = game_state.rows, game_state.cols
-    player = game_state.player
-    reveal = game_state.reveal
-    traps = game_state.traps
-    item_pos = game_state.item_pos
+def printGrid(gameState):
+    rows, cols = gameState.rows, gameState.cols
+    player = gameState.player
+    reveal = gameState.reveal
+    traps = gameState.traps
+    item_pos = gameState.item_pos
 
-    print("┌" + "─" * (cols * 2 + 1) + "┐")
+    encoding = (sys.stdout.encoding or "").lower()
+    use_unicode = "utf" in encoding
+
+    top_left, top_right, bottom_left, bottom_right, horizontal, vertical = (
+        ("┌", "┐", "└", "┘", "─", "│")
+        if use_unicode
+        else ("+", "+", "+", "+", "-", "|")
+    )
+
+    print(top_left + horizontal * (cols * 2 + 1) + top_right)
 
     for r in range(rows):
         row_display = [
             cell_symbol(r, c, player, reveal, traps, item_pos)
             for c in range(cols)
         ]
-        print("│ " + " ".join(row_display) + " │")
+        print(vertical + " " + " ".join(row_display) + " " + vertical)
 
-    print("└" + "─" * (cols * 2 + 1) + "┘")
+    print(bottom_left + horizontal * (cols * 2 + 1) + bottom_right)
 
 
 def selectGridSize():
