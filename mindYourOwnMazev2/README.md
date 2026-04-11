@@ -1,5 +1,5 @@
 # What the game must do:
-This is a maze game where the world is a square grid. The player will start in 1 cell and can move one step at a time using the wasd keys. To win the player must find the item hidden in the grid. There are traps also hidden in cell around the grid. If the player steps on a trap it will reduce their health. There will be a search algorithem to give hints or solve the map completely. 
+This is a maze game where the world is a square grid. The player will start in 1 cell and can move one step at a time using the wasd keys. To win the player must find the item hidden in the grid. There are traps also hidden in cell around the grid. If the player steps on a trap it will reduce their health. There will be a search algorithm to give hints or solve the map completely. 
 
 # Game rules:
 Grid size:

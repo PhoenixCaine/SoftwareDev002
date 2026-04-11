@@ -1,6 +1,6 @@
 from gridSize import printGrid
 from player import placePlayer, playerMovement, getPlayerInput
-from SoftwareDev002.mindYourOwnMaze.screenClear import clearScreen
+from screenClear import clearScreen
 from health import loseLife, checkGameOver, resetLives, showLives
 
 def gameLoop(grid):
