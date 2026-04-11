@@ -7,23 +7,26 @@ except ImportError:
 
 
 def createGrid(rows, cols):
+    """Return a rows×cols grid filled with '.' placeholders."""
     return [["." for _ in range(cols)] for _ in range(rows)]
 
 
 def cell_symbol(r, c, player, reveal, traps, item_pos, revealedTraps):
+    """Determine which symbol to display for a given cell."""
     if (r, c) == (player.row, player.col):
-        return "P"
+        return "P"  # Player position
     elif reveal and (r, c) == item_pos:
-        return "T"
+        return "T" # Treasure revealed
     elif reveal and (r, c) in traps:
-        return "X"
+        return "X"  # All traps revealed at end of game
     elif (r, c) in revealedTraps:
-        return "X"
+        return "X"  # Only traps the player has stepped on
     else:
-        return "."
+        return "."  # Default empty/unvisited cell
 
 
 def printGrid(gameState):
+    """Render the game grid with borders and appropriate symbols."""
     rows, cols = gameState.rows, gameState.cols
     player = gameState.player
     reveal = gameState.reveal
@@ -52,6 +55,7 @@ def printGrid(gameState):
 
 
 def selectGridSize():
+    """Prompt the user to choose between a 5×5 or 8×8 grid."""
     while True:
         try:
             size = int(input("Press 1 for a 5x5 grid, 2 for an 8x8 grid: "))
