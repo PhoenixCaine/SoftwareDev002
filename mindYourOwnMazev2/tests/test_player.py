@@ -1,5 +1,5 @@
 import pytest
-from player import Player
+from mindYourOwnMazeV2.player import Player
 
 # ---------------------------
 # Test for Player movement

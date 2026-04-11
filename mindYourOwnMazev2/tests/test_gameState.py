@@ -1,6 +1,6 @@
 import pytest
-from player import Player
-from gameState import GameState
+from mindYourOwnMazeV2.player import Player
+from mindYourOwnMazeV2.gameState import GameState
 
 # ---------------------------
 # Test for GameState player interactions

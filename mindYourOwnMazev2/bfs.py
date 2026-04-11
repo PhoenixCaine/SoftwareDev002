@@ -22,6 +22,9 @@ def bfs(start, goal, grid):
             if (nr, nc) in visited:
                 continue
 
+            if grid[nr][nc] == "#":
+                continue
+
             visited.add((nr, nc))
             parent[(nr, nc)] = (r, c)
             queue.append((nr, nc))

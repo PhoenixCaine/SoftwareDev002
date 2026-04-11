@@ -1,5 +1,5 @@
 import pytest
-from bfs import bfs
+from mindYourOwnMazeV2.bfs import bfs
 
 # ---------------------------
 # Test for BFS pathfinding
@@ -22,9 +22,8 @@ def test_bfs_finds_path():
 
 def test_bfs_returns_none_if_no_path():
     grid = [
-        [".",".","#"],
-        [".","#","#"],
-        [".",".","."]
+        [".","#"],
+        ["#","."]
     ]
-    path = bfs((0,0), (2,2), grid)
+    path = bfs((0,0), (1,1), grid)
     assert path is None

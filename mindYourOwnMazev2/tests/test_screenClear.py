@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch
-from screenClear import clearScreen
+from mindYourOwnMazeV2.screenClear import clearScreen
 
 def test_clearScreen_calls_correct_os_command():
     with patch("os.system") as mock_system, patch("os.name", "nt"):

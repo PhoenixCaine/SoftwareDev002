@@ -1,5 +1,9 @@
 import sys
-import player
+
+try:
+    from . import player
+except ImportError:
+    import player
 
 
 def createGrid(rows, cols):

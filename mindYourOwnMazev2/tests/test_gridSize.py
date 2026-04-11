@@ -1,7 +1,7 @@
 import pytest
-from gridSize import createGrid, selectGridSize, printGrid
-from player import Player
-from gameState import GameState
+from mindYourOwnMazeV2.gridSize import createGrid, selectGridSize, printGrid
+from mindYourOwnMazeV2.player import Player
+from mindYourOwnMazeV2.gameState import GameState
 
 # ---------------------------
 # Test for grid creation

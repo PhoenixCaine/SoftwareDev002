@@ -1,8 +1,8 @@
 import pytest
 from unittest.mock import patch
-from hiddenItems import placeItem, placeTraps
-from gridSize import createGrid
-from player import Player
+from mindYourOwnMazeV2.hiddenItems import placeItem, placeTraps
+from mindYourOwnMazeV2.gridSize import createGrid
+from mindYourOwnMazeV2.player import Player
 
 # ---------------------------
 # Test for placeItem function

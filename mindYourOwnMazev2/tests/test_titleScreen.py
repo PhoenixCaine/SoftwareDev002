@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch, MagicMock
-from titleScreen import titleScreen
+from mindYourOwnMazeV2.titleScreen import titleScreen
 
 # ---------------------------
 # Test for title screen display
@@ -8,7 +8,7 @@ from titleScreen import titleScreen
 
 def test_titleScreen():
     with patch("os.system") as mock_sys, \
-         patch("titleScreen.Figlet") as mock_fig, \
+         patch("mindYourOwnMazeV2.titleScreen.Figlet") as mock_fig, \
          patch("builtins.print") as mock_print, \
          patch("builtins.input", return_value="") as mock_input:
 

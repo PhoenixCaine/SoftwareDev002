@@ -1,9 +1,17 @@
-from gridSize import printGrid
-from player import Player
-from gameState import GameState
-from hiddenItems import placeItem, placeTraps
-from screenClear import clearScreen
-from bfs import bfs
+try:
+    from .gridSize import printGrid
+    from .player import Player
+    from .gameState import GameState
+    from .hiddenItems import placeItem, placeTraps
+    from .screenClear import clearScreen
+    from .bfs import bfs
+except ImportError:
+    from gridSize import printGrid
+    from player import Player
+    from gameState import GameState
+    from hiddenItems import placeItem, placeTraps
+    from screenClear import clearScreen
+    from bfs import bfs
 
 # Handle trap and item interactions
 

@@ -1,5 +1,5 @@
 import pytest
-from gridSize import selectGridSize
+from mindYourOwnMazeV2.gridSize import selectGridSize
 
 # ---------------------------
 # Test for selectGridSize function with 5x5 option

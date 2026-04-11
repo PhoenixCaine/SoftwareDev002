@@ -1,10 +1,19 @@
-from titleScreen import titleScreen
-from gridSize import createGrid, selectGridSize
-from maze import makeMaze
-from hiddenItems import placeItem, placeTraps
-from game import gameLoop
-from player import Player
-from screenClear import clearScreen
+try:
+    from .titleScreen import titleScreen
+    from .gridSize import createGrid, selectGridSize
+    from .maze import makeMaze
+    from .hiddenItems import placeItem, placeTraps
+    from .game import gameLoop
+    from .player import Player
+    from .screenClear import clearScreen
+except ImportError:
+    from titleScreen import titleScreen
+    from gridSize import createGrid, selectGridSize
+    from maze import makeMaze
+    from hiddenItems import placeItem, placeTraps
+    from game import gameLoop
+    from player import Player
+    from screenClear import clearScreen
 
 
 def main():
