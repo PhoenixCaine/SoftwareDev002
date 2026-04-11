@@ -1,7 +1,10 @@
 class Player:
-    def __init__(self, row=0, col=0, health=3):
+    def __init__(self, row=0, col=0):
         self.row = row
         self.col = col
+
+
+
 
     def move(self, direction, rows, cols):
         new_r, new_c = self.row, self.col
